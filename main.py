@@ -4,7 +4,7 @@ root = Tk()
 
 # creating windows features
 root.title("Tk Frame Example")                # creating the title of the window
-root.configure(background="skyblue")     # backkground color change
+root.configure(background="skyblue")          # backkground color change
 root.maxsize(1300,1000)
 
 #creating a frame widget
@@ -29,4 +29,38 @@ right_frame = Frame(root, width= 800, height=800, background="blue")
 right_frame.grid(row=0, column=1, padx= 30, pady=10)
 
 
-root.mainloop()                         
+# declaring string variables for storing username and password
+username_var = StringVar()
+password_var = StringVar()
+
+# labels for username and password
+full_name_label = Label( left_toolbox, text="Username")
+password_label = Label(left_toolbox, text="Password")
+full_name_label.pack()
+password_label.pack()
+
+
+# create a text entry box
+username_entry = Entry(left_toolbox, textvariable=username_var)
+password_entry = Entry(left_toolbox, textvariable=password_var)
+username_entry.pack()
+password_entry.pack()
+
+# retreving the entry
+
+
+#function for clicking buttons
+def button_click():
+    username = username_var.get()
+    password = password_var.get()
+    print(f"your username is {username} and password is {password}")
+
+
+# create a button
+turn_on = Button(left_toolbox, text="Show Username and Password", width=30, command=button_click)
+turn_on.pack()
+turn_off = Button(left_toolbox, text="OFF", width=30, command=root.quit)
+turn_off.pack()
+
+
+root.mainloop()
