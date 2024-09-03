@@ -34,17 +34,15 @@ username_var = StringVar()
 password_var = StringVar()
 
 # labels for username and password
-full_name_label = Label( left_toolbox, text="Username")
+username_label = Label( left_toolbox, text="Username")
 password_label = Label(left_toolbox, text="Password")
-full_name_label.pack()
-password_label.pack()
+
 
 
 # create a text entry box
-username_entry = Entry(left_toolbox, textvariable=username_var)
-password_entry = Entry(left_toolbox, textvariable=password_var)
-username_entry.pack()
-password_entry.pack()
+username_entry = Entry(left_toolbox, textvariable=username_var, width=30, bd=2)
+password_entry = Entry(left_toolbox, textvariable=password_var, width=30, bd=2)
+
 
 # retreving the entry
 
@@ -57,10 +55,14 @@ def button_click():
 
 
 # create a button
-turn_on = Button(left_toolbox, text="Show Username and Password", width=30, command=button_click)
-turn_on.pack()
-turn_off = Button(left_toolbox, text="OFF", width=30, command=root.quit)
-turn_off.pack()
+login_btn = Button(left_toolbox, text="LOGIN", width=30, command=button_click)
+logoff_btn = Button(left_toolbox, text="LOGOFF", width=30, command=root.quit)
 
+username_label.grid(row=0, column=0, padx=5, pady=5)
+username_entry.grid(row=0, column=1)
+password_label.grid(row=1, column=0)
+password_entry.grid(row=1, column=1)
+login_btn.grid(row=2, column=0)
+logoff_btn.grid(row=2,column=1)
 
 root.mainloop()
