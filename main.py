@@ -32,6 +32,7 @@ right_frame.grid(row=0, column=1, padx= 30, pady=10)
 # declaring string variables for storing username and password
 username_var = StringVar()
 password_var = StringVar()
+texts = StringVar()
 
 # labels for username and password
 username_label = Label( left_toolbox, text="Username")
@@ -64,5 +65,6 @@ password_label.grid(row=1, column=0)
 password_entry.grid(row=1, column=1)
 login_btn.grid(row=2, column=0)
 logoff_btn.grid(row=2,column=1)
+
 
 root.mainloop()
